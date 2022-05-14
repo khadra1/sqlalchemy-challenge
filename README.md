@@ -14,8 +14,6 @@ sql-alchemy
 
 4. Push the changes to GitHub or GitLab.
 
-![surfs-up.png](Images/surfs-up.png)
-
 ## Instructions
 
 Congratulations! You've decided to treat yourself to a long holiday vacation in Honolulu, Hawaii! To help with your trip planning, you need to do some climate analysis on the area. The following sections outline the steps you must take to accomplish this task.
@@ -50,8 +48,6 @@ To perform an analysis of precipitation in the area, do the following:
 
 * Plot the results by using the DataFrame `plot` method, as shown in the following image:
 
-  ![precipitation](Images/precipitation.png)
-
 * Use Pandas to print the summary statistics for the precipitation data.
 
 #### Station Analysis
@@ -78,7 +74,6 @@ To perform an analysis of stations in the area, do the following:
 
     * Plot the results as a histogram with `bins=12`, as shown in the following image:
 
-    ![station-histogram](Images/station-histogram.png)
 
 * Close out your session.
 
@@ -166,7 +161,6 @@ Complete the following steps:
 
     * Use the peak-to-peak (TMAX-TMIN) value as the _y_ error bar (YERR).
 
-    ![temperature](Images/temperature.png)
 
 #### Daily Rainfall Average
 
@@ -195,7 +189,5 @@ Complete the following steps:
 * Load the list of daily normals into a Pandas DataFrame, and set the index equal to the date.
 
 * Use Pandas to plot an area plot (`stacked=False`) for the daily normals, as shown in the following image:
-
-  ![daily-normals](Images/daily-normals.png)
 
 * Close out your session.
