@@ -66,7 +66,8 @@ def home():
         f"/api/v1.0/tobs<br/>"
         f"/api/v1.0/start<br/>"
         f"/api/v1.0/start/end<br/>"
-        f"To search for the temperatures on your chosen dates us the YYYY-MM-DD format for start date or YY-MM-DD/YY-MM-DD format for start date - end date<br/>"
+        f"To search for the temperatures use the YYYY-MM-DD format for start date<br/>"
+        f"To search for the temperature use the YY-MM-DD/YY-MM-DD format for start date - end date<br/>"
         f"Start date only example: /api/v1.0/2016-01-01<br/>"
         f"Start date - End date example: /api/v1.0/2016-01-01/2017-01-01"
     )
@@ -140,13 +141,13 @@ def tobs():
 
 
     active_stations = session.query(Measurement.station, func.count(Measurement.date)).\
-                              group_by(Measurement.station).order_by(func.\
-                              count(Measurement.date).desc()).all()
+                      group_by(Measurement.station).order_by(func.\
+                      count(Measurement.date).desc()).all()
     most_active_station_id = active_stations[0][0]
     
     sel=[Measurement.station, Measurement.date, Measurement.tobs]
     results=session.query(*sel).filter(Measurement.date >= one_year).\
-                    filter(Measurement.station == most_active_station_id).all()
+            filter(Measurement.station == most_active_station_id).all()
 
     # Close the Session
     session.close()
@@ -181,7 +182,7 @@ def start_date(start):
     
     # When given the start only, calculate TMIN, TAVG, and TMAX for all dates greater than or equal to the start date.
     results = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), 
-    func.max(Measurement.tobs)).filter(Measurement.date >= start_date).all()
+              func.max(Measurement.tobs)).filter(Measurement.date >= start_date).all()
    
     
     # Close the Session
@@ -218,7 +219,8 @@ def startdate_enddate(start,end):
 
     # When given the start and the end date, calculate the TMIN, TAVG, and TMAX for dates from the start date through the end date (inclusive).
     results = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), 
-                        func.max(Measurement.tobs)).filter(Measurement.date >= start_date).filter(Measurement.date <= end_date).all()
+              func.max(Measurement.tobs)).filter(Measurement.date >= start_date).\
+              filter(Measurement.date <= end_date).all()
 
     # Close the Session
     session.close()
