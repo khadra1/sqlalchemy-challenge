@@ -14,7 +14,7 @@ from flask import Flask, jsonify
 ######################################################
 
 # Create engine to hawaii.sqlite
-engine = create_engine("sqlite:///../Resources/hawaii.sqlite")
+engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
 # Reflect an existing database and tables
 Base = automap_base()
@@ -66,8 +66,8 @@ def home():
         f"/api/v1.0/tobs<br/>"
         f"/api/v1.0/start<br/>"
         f"/api/v1.0/start/end<br/>"
-        f"To search for the temperatures use the YYYY-MM-DD format for start date<br/>"
-        f"To search for the temperature use the YY-MM-DD/YY-MM-DD format for start date - end date<br/>"
+        f"To search for the temperatures using the start date only use this format YYYY-MM-DD format<br/>"
+        f"To search for the temperature using the start and end date use this format YY-MM-DD/YY-MM-DD<br/>"
         f"Start date only example: /api/v1.0/2016-01-01<br/>"
         f"Start date - End date example: /api/v1.0/2016-01-01/2017-01-01"
     )
@@ -165,7 +165,7 @@ def tobs():
     return jsonify(temp_list)
 
 ##################################################################
- # Create start-date route
+# Create start-date route
 
  # Define what will happen when user inputs start-date route
 @app.route("/api/v1.0/<start>")
@@ -204,7 +204,7 @@ def start_date(start):
 #################################################################
 # Create start-date/end-date route
 
-# Define what will happen when user inputs start-date/end-date route
+ # Define what will happen when user inputs start-date/end-date route
 @app.route("/api/v1.0/<start>/<end>")
 def startdate_enddate(start,end):
     
