@@ -67,7 +67,7 @@ def home():
         f"/api/v1.0/start<br/>"
         f"/api/v1.0/start/end<br/>"
         f"To search for the temperatures using the start date only use this format: YYYY-MM-DD<br/>"
-        f"To search for the temperature using the start and end date use this format: YY-MM-DD/YY-MM-DD<br/>"
+        f"To search for the temperatures using the start and end date use this format: YY-MM-DD/YY-MM-DD<br/>"
         f"Start date only example: /api/v1.0/2016-01-01<br/>"
         f"Start date - End date example: /api/v1.0/2016-01-01/2017-01-01"
     )
